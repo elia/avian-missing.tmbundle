@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+# puts *ENV.select{|k,v| k =~ /^TM/}.map{|k,v| "#{k} =&gt; #{v}"}
+tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'],'.tm_properties')
+File.open(tm_properties, 'w') do |f|
+  f &lt;&lt; &lt;&lt;-TM_PROPERTIES
+projectDirectory = \"$CWD\"
+windowTitle = "${projectDirectory/.*\\///}:${TM_SCM_BRANCH}        [ $TM_DISPLAYNAME ]"
+  TM_PROPERTIES
+end
+sleep 0.1
+system 'open', 'txmt://open?url=file://' &lt;&lt; tm_properties &lt;&lt; '&amp;line=-1'
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>^@s</string>
+	<key>name</key>
+	<string>Save Project</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>atCaret</string>
+	<key>uuid</key>
+	<string>2556BFD8-AA62-4950-BFD9-A4D738A0B15A</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
