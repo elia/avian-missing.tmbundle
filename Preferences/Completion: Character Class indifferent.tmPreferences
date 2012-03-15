@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Completion: Character Class indifferent</string>
+	<key>scope</key>
+	<string>source, text</string>
+	<key>settings</key>
+	<dict>
+		<key>completionCommand</key>
+		<string>#!/usr/bin/env ruby
+  contents = STDIN.read
+  current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+  regexp = /\b(#{Regexp.escape current_word}[\w_]*)/
+  completions = [current_word] + contents.scan(regexp).flatten
+
+  completions.map! { |c| ["@#{c}", ":#{c}", c] }
+  puts completions.flatten.sort.uniq
+</string>
+	</dict>
+	<key>uuid</key>
+	<string>9DBFFF91-3757-4A47-A46E-786923C3E03C</string>
+</dict>
+</plist>
