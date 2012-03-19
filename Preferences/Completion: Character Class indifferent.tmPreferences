@@ -10,13 +10,34 @@
 	<dict>
 		<key>completionCommand</key>
 		<string>#!/usr/bin/env ruby
-  contents = STDIN.read
-  current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
-  regexp = /\b(#{Regexp.escape current_word}[\w_]*)/
-  completions = [current_word] + contents.scan(regexp).flatten
+  caret_line_number   = ENV["TM_LINE_NUMBER"].to_i
+  caret_column_number = ENV["TM_COLUMN_NUMBER"].to_i
+  current_word        = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+  exit if current_word.nil?
+  
+  pre, post = "", ""
+  
+  STDIN.each_with_index do |line, index|
+    if index + 1 &lt; caret_line_number
+      pre &lt;&lt; line    
+    elsif index + 1 == caret_line_number
+      pre  &lt;&lt; line[0...(caret_column_number - 1)].to_s
+      post &lt;&lt; line[(caret_column_number - 1)..line.size].to_s
+    else
+      post &lt;&lt; line
+    end
+  end
 
-  completions.map! { |c| ["@#{c}", ":#{c}", c] }
-  puts completions.flatten.sort.uniq
+  regexp = /\b(#{Regexp.escape(current_word)}[\w_]*)/
+  matches = []
+  
+  pre.gsub(regexp)  {|m| matches &lt;&lt; [pre.size - Regexp.last_match.offset(0).last, m]}
+  post.gsub(regexp) {|m| matches &lt;&lt; [Regexp.last_match.offset(0).first, m]}
+
+  matches = matches.sort.collect(&amp;:last).uniq
+  matches.delete(current_word)
+
+  puts matches
 </string>
 	</dict>
 	<key>uuid</key>
