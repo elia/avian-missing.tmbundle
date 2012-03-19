@@ -9,14 +9,43 @@
 	<key>settings</key>
 	<dict>
 		<key>completionCommand</key>
-		<string>#!/usr/bin/env ruby
-  contents = STDIN.read
-  current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
-  regexp = /\b(#{Regexp.escape current_word}[\w_]*)/
-  completions = [current_word] + contents.scan(regexp).flatten
+		<string>#!/usr/bin/env ruby -wKU
+current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+regexp = /\b(#{Regexp.escape current_word}[\w_]*)/
+current_line = ENV["TM_LINE_NUMBER"].to_i
+current_index = ENV["TM_LINE_INDEX"].to_i
+pre = ""
+post = ""
+completions = []
 
-  completions.map! { |c| ["@#{c}", ":#{c}", c] }
-  puts completions.flatten.sort.uniq
+STDIN.each_with_index do |line, line_number|
+  line_number += 1
+  if line_number &lt; current_line
+    pre &lt;&lt; line
+  elsif line_number == current_line
+    pre &lt;&lt; line[0...current_index]
+    post &lt;&lt; line[current_index..-1]
+  else
+    post &lt;&lt; line
+  end
+end
+
+# contents.scan(regexp).flatten
+pre.scan(regexp) do |match|
+  pos = Regexp.last_match.end(0)
+  completions &lt;&lt; [pre.size-pos, match]
+end
+
+post.scan(regexp) do |match|
+  pos = Regexp.last_match.begin(0)
+  completions &lt;&lt; [pos, match]
+end
+
+completions = completions.sort.map(&amp;:last).uniq
+
+completions.each do |match|
+  puts "@#{match}", ":#{match}", match
+end
 </string>
 	</dict>
 	<key>uuid</key>
