@@ -12,7 +12,7 @@ tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'],'.tm_properties')
 File.open(tm_properties, 'w') do |f|
   f &lt;&lt; &lt;&lt;-TM_PROPERTIES
 projectDirectory = "$CWD"
-projectName = "${projectDirectory/.*\///}"
+projectName = "${projectDirectory/.*\\///}"
 windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}     [${projectName}]"
   TM_PROPERTIES
 end
