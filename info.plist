@@ -7,7 +7,15 @@
 	<key>contactName</key>
 	<string>Elia Schito</string>
 	<key>description</key>
-	<string>Elia’s bundle for Avian.</string>
+	<string># Avian Missing
+
+This is a collection of missing features from TextMate2-alpha.
+
+
+## Copyright
+
+Copyright © 2012 Elia Schito. See MIT-LICENSE for details.
+</string>
 	<key>name</key>
 	<string>Avian Missing</string>
 	<key>uuid</key>
