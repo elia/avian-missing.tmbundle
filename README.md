@@ -27,6 +27,13 @@ This bundle reintroduces the TM1 behavior.
 This command creates a new file instead of opening an *untitled* tab, replaces the old ⇧⌘N and mimics the new way to [create a new file in a project folder](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder).
 
 
+### Open Project directory in Terminal (⌃⌥⌘T)
+
+**ALERT: requires OSX Lion**
+
+Opens the current project directory in the terminal (not really present in TM1, but useful anyway).
+
+
 ## Installation
 
 ```bash
