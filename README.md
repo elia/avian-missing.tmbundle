@@ -17,7 +17,7 @@ windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}     [${projectName}]"
 
 ### Character class indifferent completion (⎋)
 
-TextMate 2 [introduced]() strict completion, which will not cross boundaries between character classes anymore. For example in Ruby typing `au` and hitting `⎋` for autocompletion will not pick `:auto` or `@autocomplete` since they have a leading `:` and `@` and the belong to the *symbol* and *instance variable* character classes. 
+TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) strict …err …clever completion, which will not cross boundaries between character classes anymore. For example in Ruby typing `au` and hitting `⎋` for autocompletion will not pick `:auto` or `@autocomplete` since they have a leading `:` and `@` and the belong to the *symbol* and *instance variable* character classes. 
 
 This bundle reintroduces the TM1 behavior.
 
