@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+@loader = Thread.new { require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb' }
+
+project_dir = ENV['TM_PROJECT_DIRECTORY']
+current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+exit if current_word.nil?
+
+regexp = /\b(#{Regexp.escape current_word}[\w_]+)/
+choices = []
+
+open_files = `lsof +D "#{project_dir}" -a -c TextMate -Fn`.split("\n").map do |line|
+  next unless line =~ /^n/
+  line = line[1..-1].strip # lines are printed by `lsof` with a leading "n" because of `-Fn`
+  next if File.directory? line
+  line
+end.compact
+
+open_files.each do |file_name|
+  file_contents = File.read(file_name)
+  choices += file_contents.scan(regexp).flatten
+end
+
+@loader.join
+TextMate::UI.complete(choices.uniq)
+</string>
+	<key>input</key>
+	<string>word</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@;</string>
+	<key>name</key>
+	<string>Complete across current tabs</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>A9BE20F2-425D-4734-82EB-A5A67FF4F607</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

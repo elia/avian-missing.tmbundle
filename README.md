@@ -22,6 +22,11 @@ TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) stri
 This bundle reintroduces the TM1 behavior.
 
 
+### Cross tab completion (⌘;)
+
+[RubyAMP](http://code.leadmediapartners.com/) used to have this.
+
+
 ### New File (⌃⌘N)
 
 This command creates a new file instead of opening an *untitled* tab, replaces the old ⇧⌘N and mimics the new way to [create a new file in a project folder](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder).
