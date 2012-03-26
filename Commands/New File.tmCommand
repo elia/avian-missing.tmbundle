@@ -14,13 +14,6 @@ TextMate.detach do
     menu_click({"TextMate", "File", "New Tab"})
     menu_click({"TextMate", "File", "Save"})
 
-    -- tell application "System Events"
-    --   tell process "TextMate"
-    --     keystroke "a" using command down
-    --     keystroke "#{File.basename ENV['TM_FILENAME']}"
-    --   end tell
-    -- end tell
-
     -- `menu_click`, by Jacob Rus, September 2006
     -- 
     -- Accepts a list of form: `{"Finder", "View", "Arrange By", "Date"}`
@@ -80,6 +73,6 @@ end
 	<key>uuid</key>
 	<string>A135C40A-9158-4C5C-BE16-54626A3D601C</string>
 	<key>version</key>
-	<string>2</string>
+	<integer>2</integer>
 </dict>
 </plist>
