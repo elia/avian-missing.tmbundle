@@ -29,7 +29,8 @@ open_files.each do |file_name|
 end
 
 @loader.join
-TextMate::UI.complete(choices.uniq)
+
+TextMate::UI.complete(choices.uniq, :initial_filter =&gt; current_word)
 </string>
 	<key>input</key>
 	<string>word</string>
