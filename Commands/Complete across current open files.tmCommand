@@ -30,7 +30,12 @@ end
 
 @loader.join
 
-TextMate::UI.complete(choices.uniq, :initial_filter =&gt; current_word)
+choices.uniq!
+if choices.size == 1
+  print choices.first[current_word.size..-1]
+else
+  TextMate::UI.complete(choices, :initial_filter =&gt; current_word)
+end
 </string>
 	<key>input</key>
 	<string>word</string>
@@ -45,7 +50,7 @@ TextMate::UI.complete(choices.uniq, :initial_filter =&gt; current_word)
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
-	<string>discard</string>
+	<string>afterInput</string>
 	<key>uuid</key>
 	<string>A9BE20F2-425D-4734-82EB-A5A67FF4F607</string>
 	<key>version</key>
