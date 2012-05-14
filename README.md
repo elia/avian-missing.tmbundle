@@ -39,6 +39,15 @@ This command creates a new file instead of opening an *untitled* tab, replaces t
 Opens the current project directory in the terminal (not really present in TM1, but useful anyway).
 
 
+### Keep current file as reference (⌃⌥⌘L)
+
+> …waiting for split panes
+
+Outputs the current source into the bottom html pane, this makes the current file source visible while changing tabs.
+
+Seems that most of the need for split panes is to keep one file as a reference, this solves this particular issue.
+
+
 ## Installation
 
 ```bash

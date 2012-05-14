@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -rjcode -Ku
+
+require "#{ENV['TM_BUNDLE_SUPPORT']}/lib/doctohtml.rb"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/progress.rb"
+unit = ENV.has_key?('TM_SELECTED_TEXT') ? 'selection' : 'document'
+html = nil
+TextMate.call_with_progress(:message =&gt; "Creating HTML version of #{unit}…") do
+  html = document_to_html( STDIN.read, :include_css =&gt; !ENV.has_key?('TM_SELECTED_TEXT') )
+end
+
+puts html
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>xml</string>
+	<key>keyEquivalent</key>
+	<string>^~@l</string>
+	<key>name</key>
+	<string>Keep current file as reference (…waiting for split panes)</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>uuid</key>
+	<string>A42F5C67-B0A0-46FC-B181-A450AF3128C4</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
