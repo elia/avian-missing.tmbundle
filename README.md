@@ -52,8 +52,8 @@ Seems that most of the need for split panes is to keep one file as a reference, 
 ## Installation
 
 ```bash
-mkdir -p "~/Library/Application\ Support/Avian/Bundles"
-cd "~/Library/Application\ Support/Avian/Bundles"
+mkdir -p "~/Library/Application Support/Avian/Bundles"
+cd "~/Library/Application Support/Avian/Bundles"
 git clone git://github.com/elia/avian-missing.tmbundle.git
 ```
 
@@ -70,3 +70,4 @@ git clone git://github.com/elia/avian-missing.tmbundle.git
 ## Copyright
 
 Copyright © 2012 Elia Schito. See MIT-LICENSE for details.
+# Avian Missing
