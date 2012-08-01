@@ -60,6 +60,14 @@ Now you can just hit `⌥⌘,` and bring up your alternative preferencies (from 
 
 
 
+## Strip trailing whitespace on save
+
+Just add:
+
+    TM_STRIP_WHITESPACE_ON_SAVE = true
+
+to your `.tm_properties`.
+
 
 <br><br>
 
@@ -84,4 +92,3 @@ git clone git://github.com/elia/avian-missing.tmbundle.git
 ## Copyright
 
 Copyright © 2012 Elia Schito. See MIT-LICENSE for details.
-# Avian Missing
