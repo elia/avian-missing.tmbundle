@@ -7,6 +7,10 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
+
+
+# TM_PROPERTIES
+
 # puts *ENV.select{|k,v| k =~ /^TM/}.map{|k,v| "#{k} =&gt; #{v}"}
 tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'],'.tm_properties')
 File.open(tm_properties, 'w') do |f|
@@ -18,6 +22,17 @@ windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}     [${projectName}]"
 end
 sleep 0.1
 system 'open', 'txmt://open?url=file://' &lt;&lt; tm_properties &lt;&lt; '&amp;line=-1'
+
+
+
+
+# FAVS
+
+unless ENV['AVIAN_MISSING_SKIP_FAV']
+  system 'ln', '-s', File.expand_path(ENV['TM_PROJECT_DIRECTORY']), File.expand_path('~/Library/Application Support/TextMate/Favorites')
+end
+
+
 </string>
 	<key>input</key>
 	<string>none</string>

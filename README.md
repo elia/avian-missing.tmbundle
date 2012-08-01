@@ -14,6 +14,8 @@ current scm-branch and the `$projectDirectory` basename
  application.rb     ☛master     [awesome-app]
 ```
 
+This command also saves the project in the favorities (accessible with `⌘⇧O`).
+
 
 ## Character class indifferent completion `⎋`
 
