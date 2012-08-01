@@ -7,7 +7,9 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -KU
 
-require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/detach"
+support_path = ENV['TM_SUPPORT_PATH'] || "~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
+
+require "#{support_path}/lib/tm/detach"
 TextMate.detach do
   script = &lt;&lt;-APPLESCRIPT
     tell app "TextMate" to activate
@@ -70,6 +72,8 @@ end
 	<string>text</string>
 	<key>outputLocation</key>
 	<string>discard</string>
+	<key>semanticClass</key>
+	<string>callback.file-browser.action-menu</string>
 	<key>uuid</key>
 	<string>A135C40A-9158-4C5C-BE16-54626A3D601C</string>
 	<key>version</key>
