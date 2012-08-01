@@ -31,6 +31,8 @@ This bundle reintroduces the TM1 behavior.
 
 This command creates a new file instead of opening an *untitled* tab, replaces the old ⇧⌘N and mimics the new way to [create a new file in a project folder](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder).
 
+_NOTE: don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
+
 
 ## Open Project directory in Terminal `⌃⌥⌘T`
 

@@ -11,10 +11,62 @@ support_path = ENV['TM_SUPPORT_PATH'] || "~/Library/Application Support/TextMate
 
 require "#{support_path}/lib/tm/detach"
 TextMate.detach do
+  
+  # keystroke (ASCII character 28) -- left arrow key
+  # end tell
+  # 
+  # Or:
+  # 
+  # tell app "TextEdit" to activate
+  # tell app "System Events" to keystroke (ASCII character 28)
+  # 
+  # &gt; I seen somewhere direction need to use ascii character
+  # 
+  # Yes, or the key codes:
+  # 
+  # keystroke (ASCII character 28)--left
+  # key code 123 -- left arrow Key
+  # --
+  # keystroke (ASCII character 29)--right
+  # key code 124 -- right arrow Key
+  # --
+  # keystroke (ASCII character 30)--up
+  # key code 126 -- up arrow Key
+  # --
+  # keystroke (ASCII character 31)--down
+  # key code 125 -- down arrow Key
+  # select_all = %Q{tell application "System Events" to tell process "TextMate" to keystroke "a" using {command down}}
+  # retype_filename = %Q{tell application "System Events" to tell process "TextMate" to keystroke "#{ENV['TM_FILENAME']}"}
+  #  # &amp; return
+  #  goto_beginning = %Q{tell application "System Events" to tell process "TextMate" to keystroke (ASCII character 28) using {command down}}
+  #  select_filename = %Q{tell application "System Events" to tell process "TextMate" to keystroke (ASCII character 29) using {shift down, option down}}
+  #{select_all}
+  #{filename}
+  #{goto_beginning}
+  #{select_filename}
+  
+  filename = ENV['TM_FILENAME']
+  retype_filename = %Q{
+    tell app "System Events"
+      tell process "TextMate"
+        delay 0.1
+        keystroke "a" using {command down}
+        delay 0.1
+        keystroke "#{filename}"
+        delay 0.1
+        keystroke (ASCII character 28) using {command down}
+        delay 0.1
+        keystroke (ASCII character 29) using {shift down, option down}
+      end tell
+    end tell
+  } unless filename.nil? or filename.empty?
+  # filename =~ /^untitled( \d+)\./ or File.exist? filename
+  
   script = &lt;&lt;-APPLESCRIPT
     tell app "TextMate" to activate
     menu_click({"TextMate", "File", "New Tab"})
     menu_click({"TextMate", "File", "Save"})
+    #{retype_filename}
 
     -- `menu_click`, by Jacob Rus, September 2006
     -- 
