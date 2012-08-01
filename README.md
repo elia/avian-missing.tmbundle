@@ -29,7 +29,7 @@ This bundle reintroduces the TM1 behavior.
 
 ## New File `⌃⌘N`
 
-This command creates a new file instead of opening an *untitled* tab, replaces the old ⇧⌘N and mimics the new way to [create a new file in a project folder](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder).
+This command creates a new file in the current folder and presents a save dialog right away as in TM1 instead of opening the [dreadful](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder) TM2 *untitled* tab. The command is accessible also by control-clicking on the file browser.
 
 _NOTE: don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
 
