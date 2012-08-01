@@ -5,11 +5,11 @@ This bundle includes:
 
 ## Save Project `⌃⌘S`
 
-The save project command will now create a `.tm_properties` in the current file browser folder 
-precompiled with `projectDirectory` set and an example `windowTitle` featuring the 
+The save project command will now create a `.tm_properties` in the current file browser folder
+precompiled with `projectDirectory` set and an example `windowTitle` featuring the
 current scm-branch and the `$projectDirectory` basename
 
-**Example:** 
+**Example:**
 ```
  application.rb     ☛master     [awesome-app]
 ```
@@ -19,7 +19,7 @@ This command also saves the project in the favorities (accessible with `⌘⇧O`
 
 ## Character class indifferent completion `⎋`
 
-TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) strict …err …clever completion, which will not cross boundaries between character classes anymore. For example in Ruby typing `au` and hitting `⎋` for autocompletion will not pick `:auto` or `@autocomplete` since they have a leading `:` and `@` and the belong to the *symbol* and *instance variable* character classes. 
+TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) strict …err …clever completion, which will not cross boundaries between character classes anymore. For example in Ruby typing `au` and hitting `⎋` for autocompletion will not pick `:auto` or `@autocomplete` since they have a leading `:` and `@` and the belong to the *symbol* and *instance variable* character classes.
 
 This bundle reintroduces the TM1 behavior.
 
