@@ -62,11 +62,8 @@ Now you can just hit `⌥⌘,` and bring up your alternative preferencies (from 
 
 ## Strip trailing whitespace on save
 
-Just add:
-
-    TM_STRIP_WHITESPACE_ON_SAVE = true
-
-to your `.tm_properties`.
+Just add `TM_STRIP_WHITESPACE_ON_SAVE = true` to your `.tm_properties`.
+Ending newline fix is included.
 
 
 <br><br>
