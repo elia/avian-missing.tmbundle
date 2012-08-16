@@ -22,7 +22,7 @@ def find_theme(uuid)
 		TextMate.app_path + '/Contents/SharedSupport/Themes'
 	]
 
-	uuid = "71D40D9D-AE48-11D9-920A-000D93589AF6" if uuid.nil?
+	uuid = "A2C6BAA7-90D0-4147-BBF5-96B0CD92D109" if uuid.nil?
 	theme_dirs.each do |theme_dir|
 		if File.exists? theme_dir
 			themes = Dir.entries(theme_dir).find_all { |theme| theme =~ /.+\.(tmTheme|plist)$/ }
@@ -54,7 +54,7 @@ def generate_stylesheet_from_theme(theme_class = nil)
 	theme_uuid = prefs['themeUUID']
 	# Load the active theme. Unfortunately, this requires us to scan through
 	# all discoverable theme files...
-	unless theme_plist = find_theme(theme_uuid)
+	unless theme_plist = find_theme(theme_uuid) || find_theme(nil)
 		print "Could not locate your theme file!"
 		abort
 	end
