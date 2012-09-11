@@ -9,7 +9,7 @@
 
 content = STDIN.read
 
-if ENV['TM_STRIP_WHITESPACE_ON_SAVE']
+if ENV['TM_STRIP_WHITESPACE_ON_SAVE'] == 'true'
   content &lt;&lt; "\n" unless content.end_with? "\n"
   content.gsub! /[\t ]+$/, ''
 end
