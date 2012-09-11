@@ -10,7 +10,8 @@
 	<dict>
 		<key>completionCommand</key>
 		<string>#!/usr/bin/env ruby -wKU
-current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+word_begin, current_word = ENV["TM_CURRENT_WORD"].scan(/^([^\w_]+)([\w_]+)/).first
+
 exit if current_word.nil?
 
 regexp = /\b(#{Regexp.escape current_word}[\w_]*)/
@@ -35,19 +36,15 @@ end
 # contents.scan(regexp).flatten
 pre.scan(regexp) do |match|
   pos = Regexp.last_match.end(0)
-  completions &lt;&lt; [pre.size-pos, match]
+  completions &lt;&lt; [pre.size-pos, "#{word_begin}#{match}"]
 end
 
 post.scan(regexp) do |match|
   pos = Regexp.last_match.begin(0)
-  completions &lt;&lt; [pos, match]
+  completions &lt;&lt; [pos, "#{word_begin}#{match}"]
 end
 
-completions = completions.sort.map(&amp;:last).uniq
-
-completions.each do |match|
-  puts "@#{match}", ":#{match}", match unless match == current_word
-end
+puts completions.sort.map(&amp;:last).uniq
 </string>
 	</dict>
 	<key>uuid</key>
