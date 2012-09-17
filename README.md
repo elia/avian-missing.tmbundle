@@ -33,7 +33,14 @@ This bundle reintroduces the TM1 behavior.
 
 This command creates a new file in the current folder and presents a save dialog right away as in TM1 instead of opening the [dreadful](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder) TM2 *untitled* tab. The command is accessible also by control-clicking on the file browser.
 
-_NOTE: don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
+### Caveats
+
+- Don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
+- Some users are reporting a missing `TM_SUPPORT_PATH` variable, 
+  if it's the case try adding to your global `.tm_properties` (or to _Preferences→Variables_ if you prefer):
+
+      TM_SUPPORT_PATH = "~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
+
 
 
 ## Open Project directory in Terminal `⌃⌥⌘T`
