@@ -14,25 +14,8 @@ FONT_MAP = {
 
 # Search heuristic is based on the Theme Builder bundle's
 # "Create for Current Language" command
-def find_theme(uuid)
-	theme_dirs = [
-		"#{ENV['TM_THEMES_BUNDLE_SUPPORT']}/../Themes",
-		File.expand_path('~/Library/Application Support/TextMate/Themes'),
-		'/Library/Application Support/TextMate/Themes',
-		TextMate.app_path + '/Contents/SharedSupport/Themes'
-  ]
-
-	uuid = "A2C6BAA7-90D0-4147-BBF5-96B0CD92D109" if uuid.nil?
-	theme_dirs.each do |theme_dir|
-		if File.exists? theme_dir
-			themes = Dir.entries(theme_dir).find_all { |theme| theme =~ /.+\.(tmTheme|plist)$/ }
-			themes.each do |theme|
-				plist = OSX::PropertyList.load(File.open("#{theme_dir}/#{theme}"))
-				return plist if plist["uuid"] == uuid
-			end
-		end
-	end
-	return nil
+def theme_plist
+  @theme_plist ||= OSX::PropertyList.load(File.open(ENV['TM_CURRENT_THEME_PATH']))
 end
 
 def to_rgba(color)
@@ -51,10 +34,9 @@ def generate_stylesheet_from_theme(theme_class = nil)
 	# Load TM preferences to discover the current theme and font settings
 	textmate_pref_file = "~/Library/Preferences/#{`defaults read "$TM_APP_PATH/Contents/Info" CFBundleIdentifier`.chomp}.plist"
 	prefs = OSX::PropertyList.load(File.open(File.expand_path(textmate_pref_file)))
-	theme_uuid = prefs['themeUUID']
 	# Load the active theme. Unfortunately, this requires us to scan through
 	# all discoverable theme files...
-	unless theme_plist = find_theme(theme_uuid) || find_theme(nil)
+	unless theme_plist
 		print "Could not locate your theme file!"
 		abort
 	end
