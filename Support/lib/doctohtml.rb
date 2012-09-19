@@ -128,7 +128,7 @@ body {
 
 pre.textmate-source {
 	margin: 0;
-	padding: 0 0 0 2px;
+	padding: 1em 0.3em;
 	font-family: #{font_name}, monospace;
 	font-size: #{font_size}px;
 	line-height: 1.3em;
