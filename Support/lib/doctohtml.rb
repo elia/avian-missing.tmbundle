@@ -112,7 +112,7 @@ def generate_stylesheet_from_theme(theme_class = nil)
 		selection_style = ""
 	end
 
-	return <<EOT
+	return <<-CSS
 /* Stylesheet generated from TextMate theme
  *
  * #{theme_name}
@@ -156,7 +156,8 @@ pre.textmate-source.#{theme_class} span {
 }
 #{selection_style}
 #{theme_styles}
-EOT
+
+  CSS
 end
 
 def detab(str, width)
