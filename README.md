@@ -78,8 +78,8 @@ Ending newline fix is included.
 ## Installation
 
 ```bash
-mkdir -p "~/Library/Application Support/Avian/Bundles"
-cd "~/Library/Application Support/Avian/Bundles"
+mkdir -p ~/Library/Application\ Support/Avian/Bundles
+cd ~/Library/Application\ Support/Avian/Bundles
 git clone git://github.com/elia/avian-missing.tmbundle.git
 ```
 
