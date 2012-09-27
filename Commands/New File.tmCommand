@@ -7,9 +7,10 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -KU
 
-support_path = ENV['TM_SUPPORT_PATH'] || "~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
+# Fill-in support path if it's missing (happens to some users)
+ENV['TM_SUPPORT_PATH'] ||= "~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
 
-require "#{support_path}/lib/tm/detach"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/detach"
 TextMate.detach do
   
   # keystroke (ASCII character 28) -- left arrow key
