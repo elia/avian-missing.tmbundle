@@ -124,6 +124,7 @@ def generate_stylesheet_from_theme(theme_class = nil)
 body {
 	margin: 0;
 	padding: 0;
+	background-color: #{body_bg};
 }
 
 pre.textmate-source {
