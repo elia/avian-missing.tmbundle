@@ -23,7 +23,7 @@ print content
 	<key>name</key>
 	<string>Strip trailing whitespace on save</string>
 	<key>outputCaret</key>
-	<string>afterOutput</string>
+	<string>interpolateByLine</string>
 	<key>outputFormat</key>
 	<string>text</string>
 	<key>outputLocation</key>
