@@ -10,8 +10,8 @@
 content = STDIN.read
 
 if ENV['TM_STRIP_WHITESPACE_ON_SAVE'] == 'true'
-  content &lt;&lt; "\n" unless content.end_with? "\n"
   content.gsub! /[\t ]+$/, ''
+  content &lt;&lt; "\n" unless content.end_with? "\n"
 end
 
 print content
