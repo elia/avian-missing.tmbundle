@@ -33,6 +33,14 @@ This bundle reintroduces the TM1 behavior.
 
 This command creates a new file in the current folder and presents a save dialog right away as in TM1 instead of opening the [dreadful](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder) TM2 *untitled* tab. The command is accessible also by control-clicking on the file browser.
 
+### Requirements
+
+You need to **Enable access for assistive devices** in order to make it work:
+
+- Open your **System Preferences**
+- [Open **Accessibility**](https://f.cloud.github.com/assets/1051/120814/4f8e36a8-6d3d-11e2-9803-d7e4f9c379d9.png)
+- [Tick **Enable access for assistive devices**](https://f.cloud.github.com/assets/1051/120815/51f67d6a-6d3d-11e2-8b9a-7e983459ea55.png)
+
 ### Caveats
 
 - Don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
