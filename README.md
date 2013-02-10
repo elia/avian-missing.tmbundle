@@ -3,7 +3,7 @@
 This is a collection of missing features from [TextMate 2.0 Alpha](http://blog.macromates.com/2011/textmate-2-0-alpha/).
 This bundle includes:
 
-## Save Project `⌃⌘S`
+## <kbd>⌃⌘S</kbd> Save Project 
 
 The save project command will now create a `.tm_properties` in the current file browser folder
 precompiled with `projectDirectory` set and an example `windowTitle` featuring the
@@ -17,19 +17,19 @@ current scm-branch and the `$projectDirectory` basename
 This command also saves the project in the favorities (accessible with `⌘⇧O`).
 
 
-## Character class indifferent completion `⎋`
+## <kbd>⎋</kbd> Character class indifferent completion
 
 TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) strict …err …clever completion, which will not cross boundaries between character classes anymore. For example in Ruby typing `au` and hitting `⎋` for autocompletion will not pick `:auto` or `@autocomplete` since they have a leading `:` and `@` and the belong to the *symbol* and *instance variable* character classes.
 
 This bundle reintroduces the TM1 behavior.
 
 
-## Cross tab completion `⌘;`
+## <kbd>⌘;</kbd> Cross tab completion
 
 [RubyAMP](http://code.leadmediapartners.com/) used to have this.
 
 
-## New File `⌃⌘N`
+## <kbd>⌃⌘N</kbd> New File
 
 This command creates a new file in the current folder and presents a save dialog right away as in TM1 instead of opening the [dreadful](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder) TM2 *untitled* tab. The command is accessible also by control-clicking on the file browser.
 
@@ -51,14 +51,14 @@ You need to **Enable access for assistive devices** in order to make it work:
 
 
 
-## Open Project directory in Terminal `⌃⌥⌘T`
+## <kbd>⌃⌥⌘T</kbd> Open Project directory in Terminal
 
 _NOTE: requires OSX Lion_
 
 Opens the current project directory in the terminal (not really present in TM1, but useful anyway).
 
 
-## Keep current file as reference `⌃⌥⌘L`
+## <kbd>⌃⌥⌘L</kbd> Keep current file as reference
 
 > …waiting for split panes
 
@@ -67,15 +67,14 @@ Outputs the current source into the bottom html pane, this makes the current fil
 Seems that most of the need for split panes is to keep one file as a reference, this solves this particular issue.
 
 
-## Open the global `.tm_properties` with `⌥⌘,`
-
+## <kbd>⌥⌘,</kbd> Open the global `.tm_properties` with
 Tired of opening `.tm_properties` from the terminal or browsing to it by hand?
 
 Now you can just hit `⌥⌘,` and bring up your alternative preferencies (from you the home folder).
 
 
 
-## Strip trailing whitespace on save
+## <kbd>⌘S</kbd> Strip trailing whitespace on save
 
 Just add `TM_STRIP_WHITESPACE_ON_SAVE = true` to your `.tm_properties`.
 Ending newline fix is included.
