@@ -115,6 +115,8 @@ end
 	<string>none</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>isDisabled</key>
+	<true/>
 	<key>keyEquivalent</key>
 	<string>^@n</string>
 	<key>name</key>
