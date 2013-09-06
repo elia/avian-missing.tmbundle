@@ -14,7 +14,6 @@ current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
 exit if current_word.nil?
 
 regexp = /\b(#{Regexp.escape current_word}[\w_]+)/
-choices = []
 
 open_files = `lsof +D "#{project_dir}" -a -c TextMate -Fn`.split("\n").map do |line|
   next unless line =~ /^n/
@@ -23,10 +22,12 @@ open_files = `lsof +D "#{project_dir}" -a -c TextMate -Fn`.split("\n").map do |l
   line
 end.compact
 
-open_files.each do |file_name|
-  file_contents = File.read(file_name)
-  choices += file_contents.scan(regexp).flatten
-end
+choices = open_files.map do |file_name|
+  Thread.new do
+    file_contents = File.read(file_name)
+    file_contents.scan(regexp).flatten
+  end
+end.map {|t| t.join; t.value}
 
 @loader.join
 
