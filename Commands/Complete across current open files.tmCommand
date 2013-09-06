@@ -43,7 +43,7 @@ end
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@;</string>
+	<string>^</string>
 	<key>name</key>
 	<string>Complete across current tabs</string>
 	<key>outputCaret</key>
