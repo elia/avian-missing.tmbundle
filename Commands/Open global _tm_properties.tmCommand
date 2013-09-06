@@ -5,7 +5,8 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+
 system 'open', "txmt://open?url=file://#{File.expand_path('~/.tm_properties')}"</string>
 	<key>input</key>
 	<string>none</string>
