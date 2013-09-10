@@ -24,7 +24,7 @@ TextMate 2 [introduced](http://blog.macromates.com/2012/clever-completion/) stri
 This bundle reintroduces the TM1 behavior.
 
 
-## <kbd>⌃⎋/kbd> Cross tab completion
+## <kbd>⌃⎋</kbd> Cross tab completion
 
 [RubyAMP](http://code.leadmediapartners.com/) used to have this.
 
