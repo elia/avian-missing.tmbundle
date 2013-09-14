@@ -31,7 +31,7 @@ end.map {|t| t.join; t.value}
 
 @loader.join
 
-choices.uniq!
+choices.flatten!.uniq!
 if choices.size == 1
   print choices.first[current_word.size..-1]
 else
