@@ -18,7 +18,7 @@ system 'open', "txmt://open?url=file://#{path}"
 	<key>keyEquivalent</key>
 	<string>^~@,</string>
 	<key>name</key>
-	<string>Open prject .tm_properties</string>
+	<string>Open project .tm_properties</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
