@@ -19,12 +19,12 @@ def theme_plist
 end
 
 def to_rgba(color)
-	colors = color.scan /^#(..)(..)(..)(..)/
-	r = colors[0][0].hex
-	g = colors[0][1].hex
-	b = colors[0][2].hex
-	a = colors[0][3].hex
-	return "rgba(#{r}, #{g}, #{b}, #{ format '%0.02f', a / 255.0 })"
+  colors = color.scan /^#(..)(..)(..)(..)?/
+  r = colors[0][0].hex
+  g = colors[0][1].hex
+  b = colors[0][2].hex
+  a = colors[0][3] ? colors[0][3].hex : 253
+  return "rgba(#{r}, #{g}, #{b}, #{ format '%0.02f', a / 255.0 })"
 end
 
 def generate_stylesheet_from_theme(theme_class = nil)
@@ -75,7 +75,12 @@ def generate_stylesheet_from_theme(theme_class = nil)
 			selection_bg = setting['settings']['selection']
 			body_bg = to_rgba(body_bg) if body_bg =~ /#.{8}/
 			body_fg = to_rgba(body_fg) if body_fg =~ /#.{8}/
-			selection_bg = to_rgba(selection_bg) if selection_bg && selection_bg =~ /#.{8}/
+			# Force the selection background to be rgba. If solid, will generate
+			# (e.g.) "rgba(63, 63, 63, 0.99)"; specifying the alpha value is
+			# required because WebKit will apply a default alpha of 0.5 to the
+			# `::selection` pseudo-element.
+			# See: http://stackoverflow.com/questions/7224445/css3-selection-behaves-differently-in-ff-chrome
+			selection_bg = to_rgba(selection_bg) if selection_bg
 			next
 		end
 		next unless setting['name'] and setting['scope']
