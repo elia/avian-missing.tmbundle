@@ -63,10 +63,16 @@ Outputs the current source into the bottom html pane, this makes the current fil
 Seems that most of the need for split panes is to keep one file as a reference, this solves this particular issue.
 
 
-### <kbd>⌥⌘,</kbd> Open the global `.tm_properties` with
+### <kbd>⌥⌘,</kbd> Open the global `.tm_properties`
+
 Tired of opening `.tm_properties` from the terminal or browsing to it by hand?
 
-Now you can just hit `⌥⌘,` and bring up your alternative preferencies (from you the home folder).
+Now you can just hit `⌥⌘,` and bring up your alternative preferences (from you the home folder).
+
+
+### <kbd>⌃⌥⌘,</kbd> Open the project `.tm_properties`
+
+Now you can just hit `⌃⌥⌘,` and bring up your alternative preferences (from the current project).
 
 
 ### <kbd>⌘S</kbd> Strip trailing whitespace on save
