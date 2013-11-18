@@ -8,6 +8,14 @@ cd ~/Library/Application\ Support/Avian/Bundles
 git clone git://github.com/elia/avian-missing.tmbundle.git
 ```
 
+### Update
+
+```bash
+cd ~/Library/Application\ Support/Avian/Bundles/avian-missing.tmbundle
+git pull git://github.com/elia/avian-missing.tmbundle.git master
+```
+
+
 ## Usage
 
 This is a collection of missing features from [TextMate 2.0 Alpha](http://blog.macromates.com/2011/textmate-2-0-alpha/).
