@@ -10,7 +10,7 @@
 	<dict>
 		<key>completionCommand</key>
 		<string>#!/usr/bin/env ruby -wKU
-word_begin, current_word = ENV["TM_CURRENT_WORD"].scan(/^([^\w_]+)([\w_]+)/).first
+word_begin, current_word = ENV["TM_CURRENT_WORD"].scan(/^([^\w_]+)?([\w_]+)/).first
 
 exit if current_word.nil?
 
