@@ -3,7 +3,7 @@
 This is a collection of missing features from [TextMate 2.0 Alpha](http://blog.macromates.com/2011/textmate-2-0-alpha/).
 This bundle includes:
 
-## <kbd>⌃⌘S</kbd> Save Project 
+## <kbd>⌃⌘S</kbd> Save Project
 
 The save project command will now create a `.tm_properties` in the current file browser folder
 precompiled with `projectDirectory` set and an example `windowTitle` featuring the
@@ -29,28 +29,6 @@ This bundle reintroduces the TM1 behavior.
 [RubyAMP](http://code.leadmediapartners.com/) used to have this.
 
 
-## <kbd>⌃⌘N</kbd> New File
-
-This command creates a new file in the current folder and presents a save dialog right away as in TM1 instead of opening the [dreadful](http://tm2tips.tumblr.com/post/16467488354/create-a-new-file-in-a-project-folder) TM2 *untitled* tab. The command is accessible also by control-clicking on the file browser.
-
-### Requirements
-
-You need to **Enable access for assistive devices** in order to make it work:
-
-- Open your **System Preferences**
-- [Open **Accessibility**](https://f.cloud.github.com/assets/1051/120814/4f8e36a8-6d3d-11e2-9803-d7e4f9c379d9.png)
-- [Tick **Enable access for assistive devices**](https://f.cloud.github.com/assets/1051/120815/51f67d6a-6d3d-11e2-8b9a-7e983459ea55.png)
-
-### Caveats
-
-- Don't hold your ⌘ or ⌃ because they can trigger other actions while the bundle is typing the current filename in the dialog_
-- Some users are reporting a missing `TM_SUPPORT_PATH` variable, 
-  if it's the case try adding to your global `.tm_properties` (or to _Preferences→Variables_ if you prefer):
-
-      TM_SUPPORT_PATH = "~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared"
-
-
-
 ## <kbd>⌃⌥⌘T</kbd> Open Project directory in Terminal
 
 _NOTE: requires OSX Lion_
@@ -73,11 +51,16 @@ Tired of opening `.tm_properties` from the terminal or browsing to it by hand?
 Now you can just hit `⌥⌘,` and bring up your alternative preferencies (from you the home folder).
 
 
-
 ## <kbd>⌘S</kbd> Strip trailing whitespace on save
 
 Just add `TM_STRIP_WHITESPACE_ON_SAVE = true` to your `.tm_properties`.
 Ending newline fix is included.
+
+
+## <del><kbd>⌃⌘N</kbd> New File</del> → <kbd>⇧⌘N</kbd> (builtin)
+
+Removed as <kbd>⇧⌘N</kbd> has been introduced as a builtin command.
+
 
 
 <br><br>
