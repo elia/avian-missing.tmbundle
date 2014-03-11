@@ -6,8 +6,14 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+project_dir = ENV['TM_PROJECT_DIRECTORY']
 
-path = File.join(ENV['TM_PROJECT_DIRECTORY'], '.tm_properties')
+unless project_dir
+  puts "Not in a project!"
+  exit
+end
+
+path = File.join(project_dir, '.tm_properties')
 system 'touch', path
 system 'open', "txmt://open?url=file://#{path}"
 </string>
