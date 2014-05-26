@@ -10,7 +10,7 @@
 @loader = Thread.new { require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb' }
 
 project_dir = ENV['TM_PROJECT_DIRECTORY']
-current_word = ENV["TM_CURRENT_WORD"].scan(/([\w_]+)/).flatten.last
+current_word = ENV["TM_CURRENT_WORD"].to_s.scan(/([\w_]+)/).flatten.last
 exit if current_word.nil?
 
 regexp = /\b(#{Regexp.escape current_word}[\w_]+)/
