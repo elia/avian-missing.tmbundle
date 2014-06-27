@@ -3,17 +3,16 @@
 ## Installation
 
 ```bash
-mkdir -p ~/Library/Application\ Support/Avian/Bundles
-cd ~/Library/Application\ Support/Avian/Bundles
-git clone git://github.com/elia/avian-missing.tmbundle.git
+gem install tmbundle-manager --pre # sudo might be needed
+tmb install elia/avian-missing
 ```
 
 ### Update
 
 ```bash
-cd ~/Library/Application\ Support/Avian/Bundles/avian-missing.tmbundle
-git pull git://github.com/elia/avian-missing.tmbundle.git master
+tmb update avian-missing
 ```
+
 
 
 ## Usage
