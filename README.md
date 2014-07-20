@@ -79,6 +79,11 @@ Now you can just hit `⌃⌥⌘,` and bring up your alternative preferences (fro
 Just add `TM_STRIP_WHITESPACE_ON_SAVE = true` to your `.tm_properties`.
 Ending newline fix is included.
 
+**BEWARE:** The command **strips whitespace before writing to disk but not in the editor window**, this is a feature to me
+but I understand that some users would prefer to have the editor updated. If you're of that kind you'll have to modify the bundle manually
+and replace `callback.document.export` with `callback.document.will-save`
+([screenshot](http://cl.ly/image/0r2s3s3v3d0t/Screen%20Shot%202014-07-21%20at%2001.44.46.png)).
+
 
 ### <del><kbd>⌃⌘N</kbd> New File</del> → <kbd>⇧⌘N</kbd> (builtin)
 
