@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env bash
+(test `defaults read com.macromates.TextMate.preview hideStatusBar 2&gt; /dev/null` == 1) &amp;&amp;
+  (defaults write com.macromates.TextMate.preview hideStatusBar -bool NO &amp;&amp; echo 'visible.') || 
+  (defaults write com.macromates.TextMate.preview hideStatusBar -bool YES &amp;&amp; echo 'hidden.')
+  
+osascript -e "tell application \"$(basename "$TM_APP_PATH")\" to activate"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>name</key>
+	<string>Toggle Status Bar</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
+	<key>uuid</key>
+	<string>3CFDE182-FB93-447F-9AA8-5A84D75E103E</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
