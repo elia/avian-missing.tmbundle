@@ -12,19 +12,19 @@
 # Copyright Chris Poirier 2006.
 # Licensed under the Academic Free License version 3.0.
 #
-# This script can be used as a command for TextMate to align all 
+# This script can be used as a command for TextMate to align all
 # of the equal signs within a block of text.  When using it with
 # TextMate, set the command input to "Selected Text" or "Document",
-# and the output to "Replace Selected Text".  Map it to a key 
-# equivalent, and any time you want to tidy up a block, either 
+# and the output to "Replace Selected Text".  Map it to a key
+# equivalent, and any time you want to tidy up a block, either
 # select it, or put your cursor somewhere within it; then hit the
 # key equivalent.  Voila.
 #
 # Note that this is the first version of the script, and it hasn't
-# been heavily tested.  You might encounter a bug or two. 
+# been heavily tested.  You might encounter a bug or two.
 #
 # Per the license, use of this script is ENTIRELY at your own risk.
-# See the license for full details (they override anything I've 
+# See the license for full details (they override anything I've
 # said here).
 
 lines = STDIN.readlines
@@ -36,7 +36,7 @@ column_search_pattern = /\w:/
 
 #
 # If called on a selection, every assignment statement
-# is in the block.  If called on the document, we start on the 
+# is in the block.  If called on the document, we start on the
 # current line and look up and down for the start and end of the
 # block.
 
@@ -44,7 +44,7 @@ if selected_text then
   block_top    = 1
   block_bottom = lines.length
 else
- 
+
   #
   # We start looking on the current line.  However, if the
   # current line doesn't match the pattern, we may be just
@@ -65,13 +65,13 @@ else
       search_top = start_on = start_on
     else
       search_failed = true
-    end 
+    end
   end
 
   #
   # Now with the search boundaries set, start looking for
   # the block top and bottom.
-   
+
   unless search_failed
     start_on.downto(search_top) do |number|
       if lines[number-1] =~ relevant_line_pattern then
@@ -80,7 +80,7 @@ else
         break
       end
     end
-      
+
     start_on.upto(search_bottom) do |number|
       if lines[number-1] =~ relevant_line_pattern then
         block_bottom = number
@@ -108,9 +108,9 @@ block_top.upto(block_bottom) do |number|
   end
 end
 
-   
+
 #
-# Reformat the block.  Again, we cannot assume all lines in the 
+# Reformat the block.  Again, we cannot assume all lines in the
 # block are relevant.
 
 split_pattern = /[ \t]*:[ \t]*/
@@ -134,6 +134,8 @@ end
 	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
+	<key>isDisabled</key>
+	<true/>
 	<key>keyEquivalent</key>
 	<string>^~@]</string>
 	<key>name</key>
