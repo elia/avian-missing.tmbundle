@@ -9,7 +9,7 @@
 	<key>settings</key>
 	<dict>
 		<key>completionCommand</key>
-		<string>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+		<string>#!/usr/bin/env ruby18 -wKU
 word_begin, current_word = ENV["TM_CURRENT_WORD"].scan(/^([^\w_]+)?([\w_]+)/).first
 
 exit if current_word.nil?
