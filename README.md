@@ -46,11 +46,13 @@ This bundle reintroduces the TM1 behavior.
 [RubyAMP](http://code.leadmediapartners.com/) used to have this.
 
 
-### <kbd>⌃⌥⌘T</kbd> Open Project directory in Terminal
+### <kbd>⌃⌥⌘T</kbd> Open Project directory in terminal
 
 _NOTE: requires OSX Lion_
 
 Opens the current project directory in the terminal (not really present in TM1, but useful anyway).
+ 
+By default will open Terminal, if you prefer anoter terminal app you can set in `.tm_properties` a variable: `TM_TERMINAL_APP = "iTerm.app"`
 
 
 ### <kbd>⌃⌥⌘L</kbd> Keep current file as reference
