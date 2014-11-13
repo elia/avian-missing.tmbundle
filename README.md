@@ -89,6 +89,10 @@ and replace `callback.document.export` with `callback.document.will-save`
 
 Removed as <kbd>⇧⌘N</kbd> has been introduced as a builtin command.
 
+### <kbd>⌥⏎</kbd> Insert new line above
+
+This is like `O` (vs. `o` which is <kbd>⌘⏎</kbd>) in `vim`.
+
 
 
 <br><br>
