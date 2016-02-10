@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby18 -wKU
+
+content = STDIN.read
+
+if ENV['TM_ENSURE_TRAILING_NEWLINE_ON_SAVE'] == 'true'
+  content &lt;&lt; "\n" unless content.end_with? "\n"
+end
+
+print content
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>name</key>
+	<string>Ensure trailing newline on save</string>
+	<key>outputCaret</key>
+	<string>interpolateByLine</string>
+	<key>outputLocation</key>
+	<string>replaceDocument</string>
+	<key>semanticClass</key>
+	<string>callback.document.will-save</string>
+	<key>uuid</key>
+	<string>B0C7D023-CB2B-4A76-BDA1-EDF87D3A3AD5</string>
+</dict>
+</plist>

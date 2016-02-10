@@ -86,6 +86,11 @@ but I understand that some users would prefer to have the editor updated. If you
 and replace `callback.document.export` with `callback.document.will-save`
 ([screenshot](http://cl.ly/image/0r2s3s3v3d0t/Screen%20Shot%202014-07-21%20at%2001.44.46.png)).
 
+### <kbd>⌘S</kbd> Add newline at end of file
+
+Just add `TM_ENSURE_TRAILING_NEWLINE_ON_SAVE = true` to your `.tm_properties`.
+
+This won't add a second newline if you also have `TM_STRIP_WHITESPACE_ON_SAVE`.
 
 ### <del><kbd>⌃⌘N</kbd> New File</del> → <kbd>⇧⌘N</kbd> (builtin)
 
