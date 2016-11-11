@@ -13,6 +13,8 @@
 tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'],'.tm_properties')
 File.open(tm_properties, 'w') do |f|
   f.puts 'projectDirectory = "$CWD"'
+  default_properties = ENV['TM_PROJECT_PROPERTIES']
+  f.puts default_properties if default_properties
   if ENV['AVIAN_MISSING_DEFAULT_WINDOW_TITLE']
     f.puts 'projectName = "${projectDirectory/.*\\///}"'
     f.puts 'windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}     [${projectName}]"'
