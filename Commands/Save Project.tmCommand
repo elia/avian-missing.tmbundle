@@ -9,28 +9,39 @@
 
 # TM_PROPERTIES
 
+require 'pathname'
+
 # puts *ENV.select{|k,v| k =~ /^TM/}.map{|k,v| "#{k} =&gt; #{v}"}
-tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'],'.tm_properties')
-File.open(tm_properties, 'w') do |f|
-  f.puts 'projectDirectory = "$CWD"'
-  if ENV['AVIAN_MISSING_DEFAULT_WINDOW_TITLE']
-    f.puts 'projectName = "${projectDirectory/.*\\///}"'
-    f.puts 'windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}     [${projectName}]"'
+tm_properties = File.join(ENV['TM_PROJECT_DIRECTORY'], '.tm_properties')
+unless File.exist? tm_properties
+  File.open(tm_properties, 'w') do |f|
+    f.puts 'projectDirectory = "$CWD"'
+    default_properties = ENV['TM_PROJECT_PROPERTIES']
+    f.puts default_properties if default_properties
+    if ENV['AVIAN_MISSING_DEFAULT_WINDOW_TITLE']
+      f.puts 'projectName = "${projectDirectory/.*\\///}"'
+      f.puts 'windowTitle = "$TM_DISPLAYNAME     ☛${TM_SCM_BRANCH}' \
+             '     [${projectName}]"'
+    end
   end
-end unless File.exist? tm_properties
+end
 sleep 0.01
 system 'open', 'txmt://open?url=file://' &lt;&lt; tm_properties &lt;&lt; '&amp;line=-1'
-
-
-
 
 # FAVS
 
 unless ENV['AVIAN_MISSING_SKIP_FAV']
-  system 'ln', '-s', File.expand_path(ENV['TM_PROJECT_DIRECTORY']), File.expand_path('~/Library/Application Support/TextMate/Favorites')
+  project_dir = File.expand_path(ENV['TM_PROJECT_DIRECTORY'])
+  favorites_dir = File.expand_path(
+    '~/Library/Application Support/TextMate/Favorites'
+  )
+  favorites = Dir.glob("#{favorites_dir}/*").map do |path|
+    Pathname.new(path).realpath.to_s
+  end
+  unless favorites.include? project_dir
+    system 'ln', '-s', project_dir, favorites_dir
+  end
 end
-
-
 </string>
 	<key>input</key>
 	<string>none</string>

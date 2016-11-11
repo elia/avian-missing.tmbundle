@@ -6,9 +6,9 @@
 	<string>nop</string>
 	<key>command</key>
 	<string>#!/usr/bin/env bash
-(test `defaults read com.macromates.TextMate.preview hideStatusBar 2&gt; /dev/null` == 1) &amp;&amp;
-  (defaults write com.macromates.TextMate.preview hideStatusBar -bool NO &amp;&amp; echo 'visible.') || 
-  (defaults write com.macromates.TextMate.preview hideStatusBar -bool YES &amp;&amp; echo 'hidden.')
+(test `defaults read "$TM_APP_IDENTIFIER" hideStatusBar 2&gt; /dev/null` == 1) &amp;&amp;
+  (defaults write "$TM_APP_IDENTIFIER" hideStatusBar -bool NO &amp;&amp; echo 'visible.') || 
+  (defaults write "$TM_APP_IDENTIFIER" hideStatusBar -bool YES &amp;&amp; echo 'hidden.')
   
 osascript -e "tell application \"$(basename "$TM_APP_PATH")\" to activate"</string>
 	<key>input</key>
