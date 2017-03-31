@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
-open "$TM_PROJECT_DIRECTORY" -a "${TM_TERMINAL_APP:-Terminal.app}"
+env -i open "$TM_PROJECT_DIRECTORY" -a "${TM_TERMINAL_APP:-Terminal.app}"
 </string>
 	<key>input</key>
 	<string>none</string>
