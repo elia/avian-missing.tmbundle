@@ -19,7 +19,7 @@ def theme_plist
 end
 
 def to_rgba(color)
-  colors = color.scan /^#(..)(..)(..)(..)?/
+  colors = color.scan(/^#(..)(..)(..)(..)?/)
   r = colors[0][0].hex
   g = colors[0][1].hex
   b = colors[0][2].hex
@@ -50,7 +50,7 @@ def generate_stylesheet_from_theme(theme_class = nil)
 
 	font_name = prefs['OakTextViewNormalFontName'] || 'Monaco'
 	font_size = (prefs['OakTextViewNormalFontSize'] || 11).to_s
-	font_size.sub! /\.\d+$/, ''
+	font_size.sub!(/\.\d+$/, '')
 
 	FONT_MAP.each do | font_re, font_alt |
 		if (font_re.match(font_name))
@@ -86,10 +86,10 @@ def generate_stylesheet_from_theme(theme_class = nil)
 		next unless setting['name'] and setting['scope']
 		theme_styles << "/* " + setting['name'] + " */\n"
 		scope_name = setting['scope']
-		scope_name.gsub! /(^|[ ])-[^ ]+/, '' # strip negated scopes
-		scope_name.gsub! /\./, '_' # change inner '.' to '_'
-		scope_name.gsub! /(^|[ ])/, '\1.'
-		scope_name.gsub! /(^|,\s+)/m, '\1' + pre_selector + ' '
+		scope_name.gsub!(/(^|[ ])-[^ ]+/, '') # strip negated scopes
+		scope_name.gsub!(/\./, '_') # change inner '.' to '_'
+		scope_name.gsub!(/(^|[ ])/, '\1.')
+		scope_name.gsub!(/(^|,\s+)/m, '\1' + pre_selector + ' ')
 		theme_styles << "#{scope_name} {\n"
 		if (color = setting['settings']['foreground'])
 			color = to_rgba(color) if color =~ /#.{8}/
